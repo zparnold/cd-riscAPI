@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cs-riscAPI.iml" filepath="$PROJECT_DIR$/.idea/cs-riscAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cd-riscAPI.iml" filepath="$PROJECT_DIR$/.idea/cd-riscAPI.iml" />
     </modules>
   </component>
 </project>
