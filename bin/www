@@ -6,7 +6,18 @@
 
 var app = require('../app');
 var debug = require('debug')('cs-riscAPI:server');
+var fs = require('fs');
 var http = require('http');
+var https = require('https');
+
+/*
+ SSL Options
+ */
+var ssl_options = {
+  key: fs.readFileSync('./keys/private.key'),
+  cert: fs.readFileSync('./keys/cert.crt'),
+  ca: fs.readFileSync('./keys/intermediate.crt')
+};
 
 /**
  * Get port from environment and store in Express.
@@ -16,10 +27,11 @@ var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Create HTTP and HTTPS server.
  */
 
 var server = http.createServer(app);
+var secureServer = https.createServer(ssl_options, app);
 
 /**
  * Listen on provided port, on all network interfaces.
